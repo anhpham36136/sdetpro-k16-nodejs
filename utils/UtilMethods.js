@@ -3,6 +3,7 @@
 
 
 // 4 : argument
+const readline = require("readline-sync");
 let isEvenNumber_ = isEventNumber(4);
 // console.log(`Is even number : ${isEvenNumber_}`);
 
@@ -37,7 +38,7 @@ function findMinNumber(array) {
     return isMinNumber;
 }
 
-function sortMinToMax(array) {
+function sortArrayMinToMax(array) {
     for (let i = 0; i < array.length; i++) {
         for (let j = i + 1; j < array.length; j++) {
             if (array[i] > array[j]) { // nếu số ờ vị trí i(trước) mà lớn hơn số ở vị trí j(sau)
@@ -51,7 +52,7 @@ function sortMinToMax(array) {
     return array;
 }
 
-function sortMaxToMin(array) {
+function sortArrayMaxToMin(array) {
     for (let i = 0; i < array.length; i++) {
         for (let j = i + 1; j < array.length; j++) {
             if (array[i] < array[j]) { // nếu số ờ vị trí i(trước) mà nhỏ hơn số ở vị trí j(sau)
@@ -65,6 +66,30 @@ function sortMaxToMin(array) {
     return array;
 }
 
+function deleteElementFromArray(arr, i) {
+    arr.splice(i, 1);
+}
 
+function sortNumberASC(num1, num2) {
+    return num1 - num2;
+}
+function sortNumberDESC(num1, num2) {
+    return num2 - num1;
+}
+
+function getUserInput() {
+    return readline.question("Please input: ");
+}
 // Common JS module
-module.exports = {isEventNumber, isOddNumber, findMaxNumber, findMinNumber, sortMinToMax, sortMaxToMin};
+module.exports = {
+    isEventNumber,
+    isOddNumber,
+    findMaxNumber,
+    findMinNumber,
+    sortArrayMinToMax,
+    sortArrayMaxToMin,
+    deleteElementFromArray,
+    sortNumberASC,
+    sortNumberDESC,
+    getUserInput
+};
